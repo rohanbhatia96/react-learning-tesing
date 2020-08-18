@@ -16,3 +16,16 @@ test("Mock implementation of a basic function", () => {
   mock();
   expect(mock).toHaveBeenCalledTimes(2);
 });
+
+test("This is a spy test", () => {
+  const pizza = {
+    name: (n) => {
+      return `This is a ${n} pizza`;
+    },
+  };
+  const spy = jest.spyOn(pizza, "name");
+
+  pizza.name("cheese");
+
+  expect(spy).toHaveBeenCalledWith("cheese");
+});
